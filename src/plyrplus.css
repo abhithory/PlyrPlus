@@ -1,0 +1,259 @@
+.plyrPlus__container {
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+.plyrPlus__container video {
+  width: 100%;
+}
+
+.plyrPlus__container video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-pause-button,
+video::-webkit-media-controls-seek-back-button,
+video::-webkit-media-controls-seek-forward-button {
+  color: white;
+}
+
+/* Style the custom seek bar */
+.plyrPlus__container video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+  color: white;
+}
+
+.plyrPlus__container video::-webkit-media-controls-timeline {
+  display: none;
+  /* opacity: 0.8; */
+}
+/* video::-webkit-media-controls {
+    display: none;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  } */
+
+.plyrPlus__container video::-webkit-media-controls-panel {
+  padding-bottom: 1rem;
+  z-index: 1;
+}
+
+.plyrPlus__top_container {
+  transition: all 0.4s ease-in-out; /* Adjust duration and timing function as needed */
+
+  gap: 0.2rem;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.9)
+  );
+  height: 4rem;
+  padding: 0.4rem 0 0 0.8rem;
+
+  & div {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  & p {
+    font-size: 0.8rem;
+  }
+
+  & span {
+    font-size: 2rem;
+    line-height: 0;
+  }
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 1rem;
+  opacity: 1;
+  transition: all 0.4s ease-in-out; /* Adjust duration and timing function as needed */
+}
+
+.plyrPlus__buffering_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plyrPlus__hidden {
+  opacity: 0;
+  pointer-events: none; /* Prevent interactions when hidden */
+}
+
+.plyrPlus__chapter_btn {
+  cursor: pointer;
+}
+
+.plyrPlus__allChapters_menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  margin-top: 2.2rem;
+  width: 12rem;
+  height: 14rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: black;
+  border-radius: 0.4rem;
+
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+
+  @media (max-width: 700px) {
+    height: 8rem;
+  }
+}
+
+.plyrPlus__allChapters_menu_item {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+  & p {
+    &:first-child {
+      margin-left: 0.4rem;
+      font-size: 0.6rem;
+      background-color: gray;
+      border-radius: 0.2rem;
+      padding: 0 0.2rem;
+    }
+  }
+}
+
+.seekbar-container {
+  width: 96%;
+  height: 4px;
+  display: flex;
+  align-items: center;
+}
+.seekbar-section {
+  height: 100%;
+  background-color: #c6c6c6;
+  cursor: pointer;
+  border-radius: 10rem;
+  margin: 0 0.05rem;
+  transition: all 0.1s;
+}
+.seekbar-section.active {
+  height: 220%;
+}
+
+.seekbar-progress {
+  height: 100%;
+  background-color: #ff0000;
+  border-radius: 10rem;
+}
+
+.other-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.4rem 1rem;
+
+  & p {
+    font-size: 0.9rem;
+    color: white;
+    margin: 0;
+  }
+}
+
+/* Chapters sections */
+
+.chapterSection {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 1rem;
+}
+
+.all-chapaterDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.one-chapter {
+  border: 1px solid red;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+p {
+  margin: 0;
+}
+
+.hover-time-indicator {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  margin-bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.2rem 0.4rem;
+  color: white;
+  border-radius: 0.4rem;
+  pointer-events: none;
+  user-select: none;
+
+  font-size: 0.64rem;
+  white-space: nowrap;
+}
+
+/* Loader */
+.plyrPlus__loader {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: plyrPlus__rotation 1s linear infinite;
+}
+.plyrPlus__loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-bottom-color: #ff3d00;
+}
+
+@keyframes plyrPlus__rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
