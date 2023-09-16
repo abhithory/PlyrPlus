@@ -68,5 +68,9 @@
   },
   "dependencies": {
     "hls.js": "^1.4.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhithory/PlyrPlus"
   }
 }
