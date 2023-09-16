@@ -35,7 +35,7 @@
     "trailingComma": "es5"
   },
   "name": "plyrplus",
-  "author": "James Sayer",
+  "author": "abhithory",
   "module": "dist/plyrplus.esm.js",
   "size-limit": [
     {
