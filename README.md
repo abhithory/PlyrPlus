@@ -27,7 +27,7 @@ npm install plyrplus
 
 1. Import the PlyrPlus CSS in your project:
    ```javascript
-   import 'plyrplus/plyrplus.css';
+   import 'plyrplus/dist/plyrplus.css';
    ```
 2. Import the PlyrPlus component:
    ```javascript
