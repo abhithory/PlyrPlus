@@ -11,6 +11,14 @@ type PlayerPlusProps = {
     style?: PlayerStyle
 }
 
+const basicChapter: VideoChapter[] = [
+    {
+        index: 0,
+        timestamp: "00:00",
+        chapterName: "",
+        descripiton: "",
+    }]
+
 export function PlyrPlus({ source, chapters, style }: PlayerPlusProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const videoContainerRef = useRef<HTMLDivElement>(null);
@@ -117,7 +125,7 @@ export function PlyrPlus({ source, chapters, style }: PlayerPlusProps) {
                 >
                     <source src={source} type="video/mp4" />
                 </video>
-                <Controls videoRef={videoRef} currentTime={currentTime} chapters={chapters} setCurrentTime={setCurrentTime} isControlsVisible={isControlsVisible} />
+                <Controls videoRef={videoRef} currentTime={currentTime} chapters={chapters || basicChapter} setCurrentTime={setCurrentTime} isControlsVisible={isControlsVisible} />
                 {isBuffering &&
                     <span className="plyrPlus__buffering_container">
                         <span className="plyrPlus__loader"></span>
