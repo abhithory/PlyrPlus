@@ -27,6 +27,9 @@ export function PlyrPlus({ source, chapters, style }: PlayerPlusProps) {
     const [currentTime, setCurrentTime] = useState(videoRef?.current?.currentTime || 0)
     const [isControlsVisible, setIsControlsVisible] = useState(true);
 
+    const [availableQualities, setAvailableQualities] = useState<string[]>([]);
+    const [currentQuality, setCurrentQuality] = useState<number>(0);
+
 
     useEffect(() => {
         if (!videoRef.current) return
@@ -34,16 +37,12 @@ export function PlyrPlus({ source, chapters, style }: PlayerPlusProps) {
             const hls = new Hls();
             hls.loadSource(source);
 
-            hls.on(Hls.Events.MANIFEST_PARSED, function (_, data) {
-                const availableQualities = data.levels.map((level) => {
-                    return {
-                        bitrate: level.bitrate,
-                        resolution: level.width + 'x' + level.height,
-                        url: level.url,
-                    };
-                });
-                console.log("availableQualities", availableQualities);
+            hls.on(Hls.Events.MANIFEST_LOADED, (event, data) => {
+                const levels = data.levels;
+                const qualityLabels = levels.map((level) => level.height ? `${level.height}p` : "").filter((item) => item !== "");
+                setAvailableQualities(qualityLabels);
             });
+
             hls.attachMedia(videoRef.current);
         } else {
             videoRef.current.src = source;
@@ -132,6 +131,8 @@ export function PlyrPlus({ source, chapters, style }: PlayerPlusProps) {
                     </span>
                 }
             </div>
+            {/* <p>Available Qualities: {availableQualities.join(', ')}</p> */}
+
         </div>
     )
 }

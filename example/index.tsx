@@ -1,9 +1,9 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { PlyrPlus } from "../."
+import { PlyrPlus } from "../src"
 
-import "../dist/plyrplus.css"
+import "../src/plyrplus.css"
 
 const chaptersData = [
   {
@@ -51,13 +51,13 @@ const chaptersData = [
 ];
 
 const source = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+const source4 = "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8";
 
 
 const App = () => {
   return (
     <div>
-      <h1>aflkfjadsklfjkl</h1>
-      <PlyrPlus source={source} chapters={chaptersData} style={
+      <PlyrPlus source={source4} chapters={chaptersData} style={
         {
           width: "100%",
         }
@@ -67,3 +67,4 @@ const App = () => {
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
+

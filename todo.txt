@@ -1,0 +1,6 @@
+- add subtitle
+- add qualitiy
+
+
+      <track label="English" kind="captions" srcLang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt" />
+                    <track label="French" kind="captions" srcLang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt" />
